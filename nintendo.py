@@ -3,8 +3,8 @@
 import streamlit as st
 import random
 
-st.set_page_config(page_title='🎮 닌텐도 & 포켓몬 게임 추천기 💖', layout='wide')
-st.markdown("<h1 style='text-align:center; color:#FF5C5C;'>🎉 귀여운 닌텐도 & 포켓몬 게임 추천기 🎉</h1>", unsafe_allow_html=True)
+st.set_page_config(page_title='🎮 닌텐도 게임 추천기 💖', layout='wide')
+st.markdown("<h1 style='text-align:center; color:#FF5C5C;'>🎉 닌텐도 게임 추천기 🎉</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align:center;'>5문항 설문으로 당신에게 맞는 게임을 추천해드려요! 🐱‍👤</p>", unsafe_allow_html=True)
 st.markdown("---")
 
