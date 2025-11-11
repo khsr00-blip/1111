@@ -1,12 +1,11 @@
-# streamlit_pokemon_cute.py
+# streamlit_pokemon_cute_with_image.py
 
 import streamlit as st
 import requests
 
 st.set_page_config(page_title='🌟 포켓몬 헬퍼 🌟', layout='wide')
 st.markdown("<h1 style='text-align: center; color: #FF5C5C;'>🐾 포켓몬 헬퍼 🐾</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center;'>영어 이름을 입력하면 타입, 진화 단계, 추천 스킬을 알려줘요! 💖</p>", unsafe_allow_html=True)
-
+st.markdown("<p style='text-align: center;'>영어 이름을 입력하면 타입, 진화 단계, 추천 스킬과 함께 이미지를 보여줘요! 💖</p>", unsafe_allow_html=True)
 st.markdown("---")
 
 poke_name_eng = st.text_input('포켓몬 이름 입력 (영어) 🔍')
@@ -19,7 +18,7 @@ if poke_name_eng:
         poke_url = f'https://pokeapi.co/api/v2/pokemon/{poke_name_eng}'
         poke_res = requests.get(poke_url)
         if poke_res.status_code != 200:
-            st.warning('❌ 해당 포켓몬을 찾을 수 없어요. 이름을 확인해주세요!')
+            st.warning('❌ 해당 포켓몬을 찾을 수 없습니다. 이름을 확인해주세요!')
         else:
             poke_data = poke_res.json()
             # 영어 이름
@@ -28,6 +27,8 @@ if poke_name_eng:
             types = [t['type']['name'].title() for t in poke_data.get('types', [])]
             # 추천 스킬 (앞 5개)
             moves = [m['move']['name'].replace('-', ' ').title() for m in poke_data.get('moves', [])[:5]]
+            # 포켓몬 이미지
+            image_url = poke_data.get('sprites', {}).get('front_default')
 
             # 진화 단계 조회
             species_url = poke_data.get('species', {}).get('url')
@@ -48,10 +49,11 @@ if poke_name_eng:
                     if english_name in stages:
                         evo_stage = f'Stage {stages.index(english_name)+1} / {len(stages)}'
 
-            # 출력 카드 스타일
+            # 귀여운 카드 스타일
             st.markdown(f"""
             <div style='background-color: #FFF0F5; border-radius: 15px; padding: 20px; margin: 10px; text-align:center; box-shadow: 3px 3px 10px #FFC0CB;'>
                 <h2 style='color:#FF69B4;'>✨ {english_name} ✨</h2>
+                {f"<img src='{image_url}' width='150' style='border-radius:10px;' />" if image_url else ""}
                 <p style='font-size:18px;'>💠 타입: {' / '.join(types)}</p>
                 <p style='font-size:18px;'>🔺 진화 단계: {evo_stage}</p>
                 <p style='font-size:18px;'>⭐ 추천 스킬: {', '.join(moves)}</p>
