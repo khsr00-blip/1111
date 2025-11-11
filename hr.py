@@ -242,7 +242,7 @@ if 'name' not in [c.lower() for c in work.columns]:
     work['name'] = work.index.astype(str)
 
 # Standardize numeric columns presence
-if col_Teff:
+if col_Teff is not None:
     work['Teff'] = pd.to_numeric(work[cols_lower[col_Teff]], errors='coerce')
 else:
     work['Teff'] = np.nan
