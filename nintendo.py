@@ -1,4 +1,4 @@
-# streamlit_nintendo_cute.py
+# streamlit_nintendo_cute_images.py
 
 import streamlit as st
 
@@ -22,58 +22,58 @@ q5 = st.radio("5️⃣ 플레이 시간?",
               ('짧게 즐기고 싶다', '적당히 즐기고 싶다', '긴 시간 몰입'))
 
 # --------------------------
-# 게임 후보 데이터 (이미지 포함)
+# 게임 후보 데이터 (이미지 포함, 안정적 URL)
 # --------------------------
 games = [
     {"name": "젤다의 전설: 브레스 오브 더 와일드",
      "description": "방대한 오픈월드에서 자유롭게 모험하며 퍼즐과 전투를 즐길 수 있는 액션 어드벤처 게임.",
      "tags": ["모험/스토리","혼자","어려움","리얼리틱","긴 시간 몰입"],
-     "img":"https://assets.pokemon.com/assets/cms2/img/misc/virtual-cards/zelda.jpg"},
+     "img":"https://raw.githubusercontent.com/robinbai/nintendo-game-images/main/zelda.jpg"},
     
     {"name": "슈퍼 마리오 오디세이",
      "description": "다양한 왕국을 탐험하며 마리오의 모험을 즐길 수 있는 액션 게임.",
      "tags": ["모험/스토리","혼자","적당함","귀엽고 아기자기","적당히 즐기고 싶다"],
-     "img":"https://upload.wikimedia.org/wikipedia/en/8/8d/Super_Mario_Odyssey.jpg"},
+     "img":"https://raw.githubusercontent.com/robinbai/nintendo-game-images/main/mario_odyssey.jpg"},
     
     {"name": "마리오 카트 8 디럭스",
      "description": "친구나 가족과 함께 즐기는 경주 게임.",
      "tags": ["액션","친구/가족과","쉬움","귀엽고 아기자기","짧게 즐기고 싶다"],
-     "img":"https://upload.wikimedia.org/wikipedia/en/5/5d/Mario_Kart_8_Deluxe.jpg"},
+     "img":"https://raw.githubusercontent.com/robinbai/nintendo-game-images/main/mario_kart.jpg"},
     
     {"name": "동물의 숲: 뉴 호라이즌스",
      "description": "섬에서 생활하며 마을을 꾸미고 친구들과 교류하는 시뮬레이션 게임.",
      "tags": ["시뮬레이션","상관없음","쉬움","귀엽고 아기자기","적당히 즐기고 싶다"],
-     "img":"https://upload.wikimedia.org/wikipedia/en/e/e0/Animal_Crossing_New_Horizons.jpg"},
+     "img":"https://raw.githubusercontent.com/robinbai/nintendo-game-images/main/animal_crossing.jpg"},
     
     {"name": "스플래툰 3",
      "description": "팀 대전 슈팅 게임으로 색칠을 통해 승리하는 경쟁 액션 게임.",
      "tags": ["액션","친구/가족과","적당함","픽셀/레트로","적당히 즐기고 싶다"],
-     "img":"https://upload.wikimedia.org/wikipedia/en/f/fc/Splatoon_3.jpg"},
+     "img":"https://raw.githubusercontent.com/robinbai/nintendo-game-images/main/splatoon3.jpg"},
     
     {"name": "마리오 파티 슈퍼스타즈",
      "description": "미니게임으로 친구나 가족과 즐기는 파티 게임.",
      "tags": ["캐주얼","친구/가족과","쉬움","귀엽고 아기자기","짧게 즐기고 싶다"],
-     "img":"https://upload.wikimedia.org/wikipedia/en/5/5b/Mario_Party_Superstars.jpg"},
+     "img":"https://raw.githubusercontent.com/robinbai/nintendo-game-images/main/mario_party.jpg"},
     
     {"name": "포켓몬스터 스칼렛/바이올렛",
      "description": "포켓몬을 잡고 키우며 모험하는 RPG 게임.",
      "tags": ["모험/스토리","혼자","적당함","귀엽고 아기자기","긴 시간 몰입"],
-     "img":"https://upload.wikimedia.org/wikipedia/en/9/96/Pokemon_Scarlet_and_Violet.jpg"},
+     "img":"https://raw.githubusercontent.com/robinbai/nintendo-game-images/main/pokemon_sv.jpg"},
     
     {"name": "피트니스 복싱 2",
      "description": "운동과 리듬 게임을 결합한 캐주얼 게임.",
      "tags": ["캐주얼","혼자","쉬움","상관없음","짧게 즐기고 싶다"],
-     "img":"https://upload.wikimedia.org/wikipedia/en/0/0e/Fitness_Boxing_2.jpg"},
+     "img":"https://raw.githubusercontent.com/robinbai/nintendo-game-images/main/fitness_boxing.jpg"},
     
     {"name": "링 피트 어드벤처",
      "description": "운동과 RPG를 결합한 게임으로 신체 활동과 모험을 함께 즐김.",
      "tags": ["시뮬레이션","혼자","적당함","귀엽고 아기자기","적당히 즐기고 싶다"],
-     "img":"https://upload.wikimedia.org/wikipedia/en/5/5b/Ring_Fit_Adventure.jpg"},
+     "img":"https://raw.githubusercontent.com/robinbai/nintendo-game-images/main/ring_fit.jpg"},
     
     {"name": "루이지 맨션 3",
      "description": "유령을 잡으며 미션을 해결하는 퍼즐 액션 게임.",
      "tags": ["퍼즐/전략","혼자","적당함","귀엽고 아기자기","적당히 즐기고 싶다"],
-     "img":"https://upload.wikimedia.org/wikipedia/en/2/28/Luigi%27s_Mansion_3.jpg"},
+     "img":"https://raw.githubusercontent.com/robinbai/nintendo-game-images/main/luigi_mansion.jpg"},
 ]
 
 # --------------------------
