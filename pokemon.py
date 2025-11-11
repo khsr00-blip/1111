@@ -1,23 +1,25 @@
-# streamlit_pokemon_english.py
+# streamlit_pokemon_cute.py
 
 import streamlit as st
 import requests
 
-st.set_page_config(page_title='포켓몬 정보 조회(영문 입력)', layout='wide')
-st.title('포켓몬 정보 조회기')
-st.markdown('영어 포켓몬 이름을 입력하면 타입, 진화 단계, 추천 스킬을 보여줍니다.')
+st.set_page_config(page_title='🌟 포켓몬 헬퍼 🌟', layout='wide')
+st.markdown("<h1 style='text-align: center; color: #FF5C5C;'>🐾 포켓몬 헬퍼 🐾</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>영어 이름을 입력하면 타입, 진화 단계, 추천 스킬을 알려줘요! 💖</p>", unsafe_allow_html=True)
 
-poke_name_eng = st.text_input('포켓몬 이름 입력 (영어)')
+st.markdown("---")
+
+poke_name_eng = st.text_input('포켓몬 이름 입력 (영어) 🔍')
 
 if poke_name_eng:
     poke_name_eng = poke_name_eng.strip().lower()
-    st.subheader(f'{poke_name_eng.title()} 정보 조회 중…')
+    st.markdown(f"### 🔎 {poke_name_eng.title()} 정보 조회 중...")
     try:
         # 포켓몬 기본 정보
         poke_url = f'https://pokeapi.co/api/v2/pokemon/{poke_name_eng}'
         poke_res = requests.get(poke_url)
         if poke_res.status_code != 200:
-            st.warning('해당 포켓몬을 찾을 수 없습니다. 이름을 확인하세요.')
+            st.warning('❌ 해당 포켓몬을 찾을 수 없어요. 이름을 확인해주세요!')
         else:
             poke_data = poke_res.json()
             # 영어 이름
@@ -46,11 +48,15 @@ if poke_name_eng:
                     if english_name in stages:
                         evo_stage = f'Stage {stages.index(english_name)+1} / {len(stages)}'
 
-            # 출력
-            st.markdown(f'**영문 이름:** {english_name}')
-            st.markdown(f'**타입:** {" / ".join(types)}')
-            st.markdown(f'**진화 단계:** {evo_stage}')
-            st.markdown(f'**추천 스킬:** {", ".join(moves)}')
+            # 출력 카드 스타일
+            st.markdown(f"""
+            <div style='background-color: #FFF0F5; border-radius: 15px; padding: 20px; margin: 10px; text-align:center; box-shadow: 3px 3px 10px #FFC0CB;'>
+                <h2 style='color:#FF69B4;'>✨ {english_name} ✨</h2>
+                <p style='font-size:18px;'>💠 타입: {' / '.join(types)}</p>
+                <p style='font-size:18px;'>🔺 진화 단계: {evo_stage}</p>
+                <p style='font-size:18px;'>⭐ 추천 스킬: {', '.join(moves)}</p>
+            </div>
+            """, unsafe_allow_html=True)
 
     except Exception as e:
-        st.error(f'정보 조회 중 오류 발생: {e}')
+        st.error(f'⚠️ 정보 조회 중 오류 발생: {e}')
